@@ -1,0 +1,30 @@
+server:
+  port: 8662
+
+spring:
+  application:
+    name: zuul-gateway-service
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8661/eureka
+    instance:
+      hostname: localhost
+
+zuul:
+  host:
+    connect-timeout-millis: 5000000
+    socket-timeout-millis: 5000000
+  ignoredServices: '*'
+  routes:
+    employee-crud-service:
+      path: /employee-resource/**
+      serviceId: employee-crud-service
+      stripPrefix: true
+    employee-service:
+      path: /employee-service/**
+      serviceId: employee-service
+      stripPrefix: true
