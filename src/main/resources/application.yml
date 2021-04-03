@@ -1,18 +1,4 @@
-server:
-  port: 8662
-
-spring:
-  application:
-    name: zuul-gateway-service
-
-eureka:
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://localhost:8661/eureka
-    instance:
-      hostname: localhost
+server.port: ${PORT:8662}
 
 zuul:
   host:
@@ -28,6 +14,15 @@ zuul:
       path: /employee-service/**
       serviceId: employee-service
       stripPrefix: true
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URL:http://localhost:8661}/eureka
+    instance:
+      hostname: ${DOMAIN_NAME:localhost}
 
 management:
   endpoints:
