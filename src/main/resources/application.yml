@@ -16,13 +16,14 @@ zuul:
       stripPrefix: true
 
 eureka:
+  instance:
+    hostname: ${DOMAIN_NAME:localhost}
+    non-secure-port: 80
   client:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
       defaultZone: ${EUREKA_URL:http://localhost:8661}/eureka
-    instance:
-      hostname: ${DOMAIN_NAME:localhost}
 
 management:
   endpoints:
