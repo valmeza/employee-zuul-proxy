@@ -4,7 +4,7 @@ zuul:
   host:
     connect-timeout-millis: 5000000
     socket-timeout-millis: 5000000
-  ignoredServices: '*'
+#  ignoredServices: '*'
   prefix: /api
   routes:
     employee-crud-service:
