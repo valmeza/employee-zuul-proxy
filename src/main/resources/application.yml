@@ -5,15 +5,16 @@ zuul:
     connect-timeout-millis: 5000000
     socket-timeout-millis: 5000000
   ignoredServices: '*'
+  prefix: /api
   routes:
     employee-crud-service:
       path: /employee-resource/**
       serviceId: employee-crud-service
-      stripPrefix: true
+      stripPrefix: false
     employee-service:
       path: /employee-service/**
       serviceId: employee-service
-      stripPrefix: true
+      stripPrefix: false
 
 eureka:
   instance:
