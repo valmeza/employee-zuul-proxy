@@ -10,11 +10,11 @@ zuul:
     employee-crud-service:
       path: /employee-resource/**
       serviceId: employee-crud-service
-      stripPrefix: false
+      stripPrefix: true
     employee-service:
       path: /employee-service/**
       serviceId: employee-service
-      stripPrefix: false
+      stripPrefix: true
 
 eureka:
   instance:
